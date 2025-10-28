@@ -1,5 +1,6 @@
 import { FlatList, StyleSheet, View } from "react-native";
 import CardList from "../molecules/CardList";
+import SearchBar from "../molecules/SearchBar";
 
 const DATA = [
   {
@@ -19,6 +20,7 @@ const DATA = [
 export default function ListToDo() {
   return (
     <View style={style.container}>
+      <SearchBar />
       <FlatList
         data={DATA}
         renderItem={({ item }) => <CardList title={item.title} />}
