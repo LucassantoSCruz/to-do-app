@@ -1,29 +1,32 @@
+import { useTask } from "@/contexts/TaskContext";
+import { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
+import AddBar from "../molecules/AddBar";
 import CardList from "../molecules/CardList";
-import SearchBar from "../molecules/SearchBar";
-
-const DATA = [
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-    title: "First Item",
-  },
-  {
-    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-    title: "Second Item",
-  },
-  {
-    id: "58694a0f-3da1-471f-bd96-145571e29d72",
-    title: "Third Item",
-  },
-];
+import FilterToggle from "../molecules/FilterToggle";
 
 export default function ListToDo() {
+  const { tasks, removeTask, toggleTaskDone } = useTask();
+  const [showDone, setShowDone] = useState<boolean | null>(null);
+
+  const filteredTasks =
+    showDone === null ? tasks : tasks.filter((task) => task.done === showDone);
+
   return (
     <View style={style.container}>
-      <SearchBar />
+      <AddBar />
+      <FilterToggle showDone={showDone} setShowDone={setShowDone} />
       <FlatList
-        data={DATA}
-        renderItem={({ item }) => <CardList title={item.title} />}
+        data={filteredTasks}
+        renderItem={({ item }) => (
+          <CardList
+            id={item.id}
+            title={item.title}
+            isDone={item.done}
+            onToggleDone={() => toggleTaskDone(item.id)}
+            onDelete={() => removeTask(item.id)}
+          />
+        )}
         keyExtractor={(item) => item.id}
       />
     </View>

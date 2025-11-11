@@ -12,7 +12,7 @@ export default function HomeTemplate({ headerProps }: HomeTemplateProps) {
       style={{
         flex: 1,
         alignItems: "center",
-        paddingTop: 32,
+        paddingTop: 50,
         backgroundColor: "#9A0526",
         gap: 32,
       }}

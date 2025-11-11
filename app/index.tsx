@@ -1,5 +1,10 @@
+import { TaskProvider } from "@/contexts/TaskContext";
 import HomePage from "@/src/pages/HomeScreen";
 
 export default function App() {
-  return <HomePage />;
+  return (
+    <TaskProvider>
+      <HomePage />
+    </TaskProvider>
+  );
 }

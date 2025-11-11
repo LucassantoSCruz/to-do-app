@@ -17,10 +17,14 @@ interface TaskContextProps {
   toggleTaskDone: (id: string) => void;
 }
 
-const TaskContext = createContext<TaskContextProps>({} as TaskContextProps);
+const TaskContext = createContext<TaskContextProps | undefined>(undefined);
 
 export const useTask = () => {
-  return useContext(TaskContext);
+  const context = useContext(TaskContext);
+  if (!context) {
+    throw new Error("useTask deve ser usado dentro de um TaskProvider");
+  }
+  return context;
 };
 
 export const TaskProvider = ({ children }: TaskProviderProps) => {

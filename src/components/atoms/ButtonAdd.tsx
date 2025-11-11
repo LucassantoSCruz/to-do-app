@@ -1,15 +1,15 @@
 import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { IconDelete } from "./Icons";
+import { IconAdd } from "./Icons";
 
-type ButtonDeleteProps = {
+interface BotaoProps {
   onPress: () => void;
-};
+}
 
-export default function ButtonDelete({ onPress }: ButtonDeleteProps) {
+export default function ButtonAdd({ onPress }: BotaoProps) {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={style.container}>
-        <IconDelete />
+        <IconAdd />
       </View>
     </TouchableOpacity>
   );
@@ -17,7 +17,7 @@ export default function ButtonDelete({ onPress }: ButtonDeleteProps) {
 
 const style = StyleSheet.create({
   container: {
-    backgroundColor: "#F3F3F3",
+    backgroundColor: "#9A0526",
     padding: 12,
     borderRadius: 4,
   },

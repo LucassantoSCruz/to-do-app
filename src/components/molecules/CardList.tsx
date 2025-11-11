@@ -1,18 +1,38 @@
 import { StyleSheet, Text, View } from "react-native";
+import ButtonChecked from "../atoms/ButtonChecked";
 import ButtonDelete from "../atoms/ButtonDelete";
-import ButtonEdit from "../atoms/ButtonEdit";
 
 type CardListProps = {
   title: string;
+  id: string;
+  isDone: boolean;
+  onToggleDone: () => void;
+  onDelete: () => void;
 };
 
-export default function CardList({ title }: CardListProps) {
+export default function CardList({
+  title,
+  id,
+  onDelete,
+  isDone,
+  onToggleDone,
+}: CardListProps) {
   return (
     <View style={style.container}>
-      <Text style={style.textContainer}>{title}</Text>
+      <View style={style.textContainer}>
+        <ButtonChecked checked={isDone} onPress={onToggleDone} />
+        <Text
+          style={[
+            style.label,
+            isDone ? { textDecorationLine: "line-through" } : null,
+          ]}
+        >
+          {title}
+        </Text>
+      </View>
+
       <View style={style.buttonContainer}>
-        <ButtonEdit />
-        <ButtonDelete />
+        <ButtonDelete onPress={onDelete} />
       </View>
     </View>
   );
@@ -31,12 +51,18 @@ const style = StyleSheet.create({
     padding: 12,
     marginBottom: 8,
   },
-  textContainer: {
+  label: {
     fontSize: 16,
     fontWeight: 600,
   },
   buttonContainer: {
     flexDirection: "row",
+    gap: 4,
+  },
+  textContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
     gap: 4,
   },
 });

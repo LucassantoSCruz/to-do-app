@@ -23,3 +23,27 @@ export const IconSearch = () => {
     </Svg>
   );
 };
+
+export const IconCheck = () => {
+  return (
+    <Svg height="36px" viewBox="0 -960 960 960" width="36px" fill="#1f1f1f">
+      <Path d="m424-312 282-282-56-56-226 226-114-114-56 56 170 170ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z" />
+    </Svg>
+  );
+};
+
+export const IconCheckBlank = () => {
+  return (
+    <Svg height="36px" viewBox="0 -960 960 960" width="36px" fill="#1f1f1f">
+      <Path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Z" />
+    </Svg>
+  );
+};
+
+export const IconAdd = () => {
+  return (
+    <Svg height="24px" viewBox="0 -960 960 960" width="24px" fill="#F3F3F3">
+      <Path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+    </Svg>
+  );
+};
