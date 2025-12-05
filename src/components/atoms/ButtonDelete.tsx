@@ -17,7 +17,7 @@ export default function ButtonDelete({ onPress }: ButtonDeleteProps) {
 
 const style = StyleSheet.create({
   container: {
-    backgroundColor: "#F3F3F3",
+    backgroundColor: "#f2f2f2",
     padding: 12,
     borderRadius: 4,
   },
